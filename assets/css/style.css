@@ -160,11 +160,11 @@ a:hover {
 }
 
 .polo-btn2 {
-    color: #fff;
-    font-size: 26px;
+    color: #ffff;
+    font-size: 200%;
     font-weight: 1;
-    padding: 20px 0px;
-    margin: 0px 5px 0px 0px;
+    padding: 0px 0px;
+    margin: 0px 0px 0px 0px;
     transition: 0.4s ease all;
 }
 
@@ -179,7 +179,7 @@ a:hover {
     height: 100%;
     margin-right: -260px;
     overflow-y: auto;
-    background: ##2C4E45;
+    background: #2C4E45;
     z-index: 99999999;
     -webkit-transition: all 0.4s ease 0s;
     -moz-transition: all 0.4s ease 0s;
@@ -307,7 +307,7 @@ a:hover {
 .logo {
     font-family: 'Roboto';
     color: #fff;
-    font-size: 2em;
+    font-size: 180%;
     line-height: 1.6;
 }
 
@@ -823,7 +823,7 @@ textarea:-moz-placeholder {
 
 .copyright {
     color: #fff;
-    text-align: right;
+    text-align: center;
     font-size: 18px;
     margin-top: 40px;
 }
