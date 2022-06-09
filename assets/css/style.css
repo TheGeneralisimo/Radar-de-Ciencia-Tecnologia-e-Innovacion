@@ -348,6 +348,14 @@ a:hover {
     position: relative;
 }
 
+#banner-nacional {
+    background: url(../img/nacional2.png);
+    background-size: cover;
+    padding-top: 80px;
+    background-attachment: fixed;
+    position: relative;
+}
+
 .headings {
     padding: 25% 0 30% 0;
     color: #fff;
