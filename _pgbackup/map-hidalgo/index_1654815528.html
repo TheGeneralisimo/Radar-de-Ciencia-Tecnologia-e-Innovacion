@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/style.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -22,6 +24,7 @@
         <title></title>
     </head>
     <body>
+        <div id="preloader"></div>
         <div id="map">
 </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -34,17 +37,18 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-search.js"></script>
-        <script src="data/Municipios_1.js"></script>         
+        <script src="data/Municipios_1.js"></script>
+        <script src="assets/js/script.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:15, minZoom:9
+            zoomControl:true, maxZoom:9, minZoom:9
         }).fitBounds([[19.5316681126,-100.614367049],[21.4628842335,-97.2041400957]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 15
+            maxZoom: 9
         });
         basemap0.addTo(map);
         function setBounds() {
