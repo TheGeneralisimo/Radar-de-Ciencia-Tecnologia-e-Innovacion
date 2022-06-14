@@ -12,14 +12,7 @@
         <link rel="stylesheet" href="css/qgis2web.css"> 
         <link rel="stylesheet" href="css/leaflet-search.css"> 
         <link rel="stylesheet" href="assets/css/style-new.css"> 
-        <style>
-        html, body, #map {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        </style>         
+        <style>html, body, #map { width: 100%; height: 100%; padding: 0; margin: 0; }</style>         
         <title></title>         
     </head>     
     <body> 
@@ -41,7 +34,7 @@
             zoomControl:true, maxZoom:15, minZoom:9
         }).fitBounds([[19.5316681126,-100.614367049],[21.4628842335,-97.2041400957]]);
         var hash = new L.Hash(map);
-        map.attributionControl.addAttribution('Unidad de Planeación y Prospectiva del Estadi de Hidalgo utilizando <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        map.attributionControl.addAttribution('Unidad de Planeación y Prospectiva del Estado de Hidalgo utilizando <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a>,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
