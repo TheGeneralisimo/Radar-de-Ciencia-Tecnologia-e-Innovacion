@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="es">
-    <head>
+<!doctype html> 
+<html lang="es"> 
+    <head> 
         <title>Radar de Ciencia, Tecnológica e Innovación</title>         
         <link rel="icon" type="image/x-icon" href="radar.png"> 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"> 
+        <meta name="mobile-web-app-capable" content="yes"> 
+        <meta name="apple-mobile-web-app-capable" content="yes"> 
+        <link rel="stylesheet" href="css/leaflet.css"> 
+        <link rel="stylesheet" href="css/qgis2web.css"> 
+        <link rel="stylesheet" href="css/leaflet-search.css"> 
+        <link rel="stylesheet" href="assets/css/style-new.css"> 
         <style>
         html, body, #map {
             width: 100%;
@@ -18,32 +19,32 @@
             padding: 0;
             margin: 0;
         }
-        </style>
-        <title></title>
-    </head>
-    <body>
-        <div id="map">
-</div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet-search.js"></script>
+        </style>         
+        <title></title>         
+    </head>     
+    <body> 
+        <div id="map"> 
+</div>         
+        <script src="js/qgis2web_expressions.js"></script>         
+        <script src="js/leaflet.js"></script>         
+        <script src="js/leaflet.rotatedMarker.js"></script>         
+        <script src="js/leaflet.pattern.js"></script>         
+        <script src="js/leaflet-hash.js"></script>         
+        <script src="js/Autolinker.min.js"></script>         
+        <script src="js/rbush.min.js"></script>         
+        <script src="js/labelgun.min.js"></script>         
+        <script src="js/labels.js"></script>         
+        <script src="js/leaflet-search.js"></script>         
         <script src="data/Municipios_1.js"></script>         
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:15, minZoom:9
         }).fitBounds([[19.5316681126,-100.614367049],[21.4628842335,-97.2041400957]]);
         var hash = new L.Hash(map);
-        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        map.attributionControl.addAttribution('Unidad de Planeación y Prospectiva del Estadi de Hidalgo utilizando <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a>,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             maxZoom: 15
         });
         basemap0.addTo(map);
@@ -65,35 +66,35 @@
                         <td>' + (feature.properties['Radar'] !== null ? Autolinker.link(String(feature.properties['Radar'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">SIN</th>\
+                        <th scope="row"><img src="assets/img/sni.png" width=25px> SIN</th>\
                         <td>' + (feature.properties['SIN'] !== null ? Autolinker.link(String(feature.properties['SIN'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Educación</th>\
+                        <th scope="row"><img src="assets/img/educacion.png" width=25px> Educación</th>\
                         <td>' + (feature.properties['Educación'] !== null ? Autolinker.link(String(feature.properties['Educación'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Infraestructura</th>\
+                        <th scope="row"><img src="assets/img/infra.png" width=25px> Infraestructura</th>\
                         <td>' + (feature.properties['Infraestructura'] !== null ? Autolinker.link(String(feature.properties['Infraestructura'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Emprendimiento y Negocios</th>\
+                        <th scope="row"><img src="assets/img/emprendimiento.png" width=25px> Emprendimiento y Negocios</th>\
                         <td>' + (feature.properties['Emprendimiento y Negocios'] !== null ? Autolinker.link(String(feature.properties['Emprendimiento y Negocios'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Innovación</th>\
+                        <th scope="row"><img src="assets/img/innovacion.png" width=25px> Innovación</th>\
                         <td>' + (feature.properties['Innovación'] !== null ? Autolinker.link(String(feature.properties['Innovación'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Disponibilidad de TIC´S</th>\
+                        <th scope="row"><img src="assets/img/tic.png" width=25px> Disponibilidad de TIC´S</th>\
                         <td>' + (feature.properties['Disponibilidad de TIC´S'] !== null ? Autolinker.link(String(feature.properties['Disponibilidad de TIC´S'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Género</th>\
+                        <th scope="row"><img src="assets/img/genero.png" width=25px> Género</th>\
                         <td>' + (feature.properties['Género'] !== null ? Autolinker.link(String(feature.properties['Género'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Inclusión</th>\
+                        <th scope="row"><img src="assets/img/inclusion.png" width=25px> Inclusión</th>\
                         <td>' + (feature.properties['Inclusión'] !== null ? Autolinker.link(String(feature.properties['Inclusión'])) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -136,6 +137,6 @@
                 return this._bounds;
             }
         });
-        </script>
-    </body>
+        </script>         
+    </body>     
 </html>
