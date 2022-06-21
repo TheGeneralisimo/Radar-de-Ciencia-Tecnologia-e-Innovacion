@@ -1,102 +1,75 @@
-<!doctype html> 
-<html lang="es"> 
-    <head> 
-        <title>Radar de Ciencia, Tecnológica e Innovación</title>         
-        <link rel="icon" type="image/x-icon" href="radar.png"> 
-        <meta charset="utf-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"> 
-        <meta name="mobile-web-app-capable" content="yes"> 
-        <meta name="apple-mobile-web-app-capable" content="yes"> 
-        <link rel="stylesheet" href="css/leaflet.css"> 
-        <link rel="stylesheet" href="css/qgis2web.css"> 
-        <link rel="stylesheet" href="css/leaflet-search.css"> 
-        <link rel="stylesheet" href="assets/css/style-new.css"> 
-        <style>html, body, #map { width: 100%; height: 100%; padding: 0; margin: 0; }</style>         
-        <title></title>         
-    </head>     
-    <body> 
-        <div id="map"> 
-</div>         
-        <script src="js/qgis2web_expressions.js"></script>         
-        <script src="js/leaflet.js"></script>         
-        <script src="js/leaflet.rotatedMarker.js"></script>         
-        <script src="js/leaflet.pattern.js"></script>         
-        <script src="js/leaflet-hash.js"></script>         
-        <script src="js/Autolinker.min.js"></script>         
-        <script src="js/rbush.min.js"></script>         
-        <script src="js/labelgun.min.js"></script>         
-        <script src="js/labels.js"></script>         
-        <script src="js/leaflet-search.js"></script>         
-        <script src="data/Municipios_1.js"></script>         
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/RadarEstatal_0.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:15, minZoom:9
-        }).fitBounds([[19.5316681126,-100.614367049],[21.4628842335,-97.2041400957]]);
+            zoomControl:true, maxZoom:28, minZoom:8
+        })
         var hash = new L.Hash(map);
-        map.attributionControl.addAttribution('Unidad de Planeación y Prospectiva del Estado de Hidalgo utilizando <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a>,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 15
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
         });
         basemap0.addTo(map);
         function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+            map.setMaxBounds(map.getBounds());
         }
-        var img_Hidalgo_0 = 'data/Hidalgo_0.png';
-        var img_bounds_Hidalgo_0 = [[19.5828248133,-99.8700321412],[21.4232547264,-97.9583857603]];
-        var overlay_Hidalgo_0 = new L.imageOverlay(img_Hidalgo_0, img_bounds_Hidalgo_0);
-        bounds_group.addLayer(overlay_Hidalgo_0);
-        map.addLayer(overlay_Hidalgo_0);
-        function pop_Municipios_1(feature, layer) {
+        function pop_RadarEstatal_0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Municipios</th>\
-                        <td>' + (feature.properties['Municipios'] !== null ? Autolinker.link(String(feature.properties['Municipios'])) : '') + '</td>\
+                        <td colspan="2"><strong>Municipios</strong><br />' + (feature.properties['Municipios'] !== null ? Autolinker.link(String(feature.properties['Municipios'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Radar</th>\
-                        <td>' + (feature.properties['Radar'] !== null ? Autolinker.link(String(feature.properties['Radar'])) : '') + '</td>\
+                        <td colspan="2"><strong>Radar</strong><br />' + (feature.properties['Radar'] !== null ? Autolinker.link(String(feature.properties['Radar'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row"><img src="assets/img/sni.png" width=25px> SIN</th>\
-                        <td>' + (feature.properties['SIN'] !== null ? Autolinker.link(String(feature.properties['SIN'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/educacion.png" width=25px> Educación</th>\
-                        <td>' + (feature.properties['Educación'] !== null ? Autolinker.link(String(feature.properties['Educación'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/infra.png" width=25px> Infraestructura</th>\
-                        <td>' + (feature.properties['Infraestructura'] !== null ? Autolinker.link(String(feature.properties['Infraestructura'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/emprendimiento.png" width=25px> Emprendimiento y Negocios</th>\
-                        <td>' + (feature.properties['Emprendimiento y Negocios'] !== null ? Autolinker.link(String(feature.properties['Emprendimiento y Negocios'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/innovacion.png" width=25px> Innovación</th>\
-                        <td>' + (feature.properties['Innovación'] !== null ? Autolinker.link(String(feature.properties['Innovación'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/tic.png" width=25px> Disponibilidad de TIC´S</th>\
-                        <td>' + (feature.properties['Disponibilidad de TIC´S'] !== null ? Autolinker.link(String(feature.properties['Disponibilidad de TIC´S'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/genero.png" width=25px> Género</th>\
-                        <td>' + (feature.properties['Género'] !== null ? Autolinker.link(String(feature.properties['Género'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row"><img src="assets/img/inclusion.png" width=25px> Inclusión</th>\
-                        <td>' + (feature.properties['Inclusión'] !== null ? Autolinker.link(String(feature.properties['Inclusión'])) : '') + '</td>\
+                        <td colspan="2"><strong>Posición </strong><br />' + (feature.properties['Posición '] !== null ? Autolinker.link(String(feature.properties['Posición '])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Municipios_1_0() {
-            return {
-                pane: 'pane_Municipios_1',
+        function style_RadarEstatal_0_0(feature) {
+            if (feature.properties['Radar'] >= 0.978075 && feature.properties['Radar'] <= 8.997932 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -105,31 +78,153 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(157,197,230,0.0)',
+                fillColor: 'rgba(255,46,0,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 8.997932 && feature.properties['Radar'] <= 17.017790 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,78,1,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 17.017790 && feature.properties['Radar'] <= 25.037647 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,111,3,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 25.037647 && feature.properties['Radar'] <= 33.057505 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,144,4,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 33.057505 && feature.properties['Radar'] <= 41.077362 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,176,6,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 41.077362 && feature.properties['Radar'] <= 49.097220 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,209,7,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 49.097220 && feature.properties['Radar'] <= 57.117078 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(182,195,6,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 57.117078 && feature.properties['Radar'] <= 65.136935 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,176,4,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 65.136935 && feature.properties['Radar'] <= 73.156792 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,156,2,1.0)',
+            }
+            }
+            if (feature.properties['Radar'] >= 73.156792 && feature.properties['Radar'] <= 81.176650 ) {
+                return {
+                pane: 'pane_RadarEstatal_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(35,137,0,1.0)',
+            }
             }
         }
-        map.createPane('pane_Municipios_1');
-        map.getPane('pane_Municipios_1').style.zIndex = 401;
-        map.getPane('pane_Municipios_1').style['mix-blend-mode'] = 'normal';
-        var layer_Municipios_1 = new L.geoJson(json_Municipios_1, {
+        map.createPane('pane_RadarEstatal_0');
+        map.getPane('pane_RadarEstatal_0').style.zIndex = 400;
+        map.getPane('pane_RadarEstatal_0').style['mix-blend-mode'] = 'normal';
+        var layer_RadarEstatal_0 = new L.geoJson(json_RadarEstatal_0, {
             attribution: '<a href=""></a>',
-            pane: 'pane_Municipios_1',
-            onEachFeature: pop_Municipios_1,
-            style: style_Municipios_1_0,
+            pane: 'pane_RadarEstatal_0',
+            onEachFeature: pop_RadarEstatal_0,
+            style: style_RadarEstatal_0_0,
         });
-        bounds_group.addLayer(layer_Municipios_1);
-        map.addLayer(layer_Municipios_1);
+        bounds_group.addLayer(layer_RadarEstatal_0);
+        map.addLayer(layer_RadarEstatal_0);
         setBounds();
         map.addControl(new L.Control.Search({
-            layer: layer_Municipios_1,
+            layer: layer_RadarEstatal_0,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Municipios'}));
-        L.ImageOverlay.include({
-            getBounds: function () {
-                return this._bounds;
-            }
-        });
-        </script>         
-    </body>     
+        </script>
+    </body>
 </html>
