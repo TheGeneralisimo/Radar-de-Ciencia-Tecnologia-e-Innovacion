@@ -20,7 +20,7 @@
     </head>
     <body>
         <div id="map">
-        </div>
+</div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
@@ -623,19 +623,19 @@
                         <td colspan="2"><strong>Lugar</strong><br />' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Computadoras </strong><br />' + (feature.properties['Computadoras '] !== null ? Autolinker.link(String(feature.properties['Computadoras '])) : '') + '</td>\
+                        <td colspan="2"><strong>Computadoras </strong><br />' + (feature.properties['Computadoras '] !== null ? Autolinker.link(String(feature.properties['Computadoras '])) : '') + '%</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Línea telefónica </strong><br />' + (feature.properties['Línea telefónica '] !== null ? Autolinker.link(String(feature.properties['Línea telefónica '])) : '') + '</td>\
+                        <td colspan="2"><strong>Línea telefónica </strong><br />' + (feature.properties['Línea telefónica '] !== null ? Autolinker.link(String(feature.properties['Línea telefónica '])) : '') + '%</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Telefonía celular </strong><br />' + (feature.properties['Telefonía celular '] !== null ? Autolinker.link(String(feature.properties['Telefonía celular '])) : '') + '</td>\
+                        <td colspan="2"><strong>Telefonía celular </strong><br />' + (feature.properties['Telefonía celular '] !== null ? Autolinker.link(String(feature.properties['Telefonía celular '])) : '') + '%</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Internet</strong><br />' + (feature.properties['Internet'] !== null ? Autolinker.link(String(feature.properties['Internet'])) : '') + '</td>\
+                        <td colspan="2"><strong>Internet</strong><br />' + (feature.properties['Internet'] !== null ? Autolinker.link(String(feature.properties['Internet'])) : '') +'%</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Televisión de paga </strong><br />' + (feature.properties['Televisión de paga '] !== null ? Autolinker.link(String(feature.properties['Televisión de paga '])) : '') + '</td>\
+                        <td colspan="2"><strong>Televisión de paga </strong><br />' + (feature.properties['Televisión de paga '] !== null ? Autolinker.link(String(feature.properties['Televisión de paga '])) : '') + '%</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
