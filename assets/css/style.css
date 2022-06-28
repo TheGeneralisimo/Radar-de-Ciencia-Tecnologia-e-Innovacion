@@ -998,3 +998,9 @@ textarea:-moz-placeholder {
     background-color: #f4511e;
     color: #fff;
 }
+
+.border-radius-iframe {
+    border-radius: 45%;
+    border-bottom: transparent;
+    padding: 25px;
+}
