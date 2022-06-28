@@ -1043,3 +1043,18 @@ textarea:-moz-placeholder {
     background-color: rgb(255, 46, 0);
     color: white;
 }
+
+.fondo-a {
+    background-color: rgb(142, 180, 4);
+    color: white;
+}
+
+.fondo-b {
+    background-color: rgb(233, 168, 5);
+    color: white;
+}
+
+.fondo-c {
+    background-color: rgb(89, 158, 2);
+    color: white;
+}
