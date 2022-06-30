@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Variable24Nmerototaldebecados_0.js"></script>
+        <script src="data/Variable23EgresadosporcicloenreaSTEM_1.js"></script>
+        <script src="data/Variable22TituladosenreasSTEM_2.js"></script>
+        <script src="data/Variable21CarrerasenelreaSTEM_3.js"></script>
+        <script src="data/Eje2Educacin_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:8
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+            map.setMaxBounds(map.getBounds());
+        }
+        function pop_Variable24Nmerototaldebecados_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? Autolinker.link(String(feature.properties['Municipio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Becados</strong><br />' + (feature.properties['Becados'] !== null ? Autolinker.link(String(feature.properties['Becados'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Posición</strong><br />' + (feature.properties['Posición'] !== null ? Autolinker.link(String(feature.properties['Posición'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Variable24Nmerototaldebecados_0_0(feature) {
+            if (feature.properties['Becados'] >= 0.000000 && feature.properties['Becados'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,251,253,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 0.000000 && feature.properties['Becados'] <= 46.500000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,236,244,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 46.500000 && feature.properties['Becados'] <= 69.750000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(212,213,232,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 69.750000 && feature.properties['Becados'] <= 93.000000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,179,214,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 93.000000 && feature.properties['Becados'] <= 116.250000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(146,143,195,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 116.250000 && feature.properties['Becados'] <= 139.500000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,97,171,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 139.500000 && feature.properties['Becados'] <= 162.750000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(90,51,149,1.0)',
+            }
+            }
+            if (feature.properties['Becados'] >= 162.750000 && feature.properties['Becados'] <= 186.000000 ) {
+                return {
+                pane: 'pane_Variable24Nmerototaldebecados_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(63,0,125,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Variable24Nmerototaldebecados_0');
+        map.getPane('pane_Variable24Nmerototaldebecados_0').style.zIndex = 400;
+        map.getPane('pane_Variable24Nmerototaldebecados_0').style['mix-blend-mode'] = 'normal';
+        var layer_Variable24Nmerototaldebecados_0 = new L.geoJson(json_Variable24Nmerototaldebecados_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Variable24Nmerototaldebecados_0',
+            onEachFeature: pop_Variable24Nmerototaldebecados_0,
+            style: style_Variable24Nmerototaldebecados_0_0,
+        });
+        bounds_group.addLayer(layer_Variable24Nmerototaldebecados_0);
+        map.addLayer(layer_Variable24Nmerototaldebecados_0);
+        function pop_Variable23EgresadosporcicloenreaSTEM_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Municipios</strong><br />' + (feature.properties['Municipios'] !== null ? Autolinker.link(String(feature.properties['Municipios'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Egresados STEM</strong><br />' + (feature.properties['Egresados STEM'] !== null ? Autolinker.link(String(feature.properties['Egresados STEM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Posición</strong><br />' + (feature.properties['Posición'] !== null ? Autolinker.link(String(feature.properties['Posición'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Variable23EgresadosporcicloenreaSTEM_1_0(feature) {
+            if (feature.properties['Egresados STEM'] >= 0.000000 && feature.properties['Egresados STEM'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(241,238,246,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 0.000000 && feature.properties['Egresados STEM'] <= 35.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,206,229,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 35.000000 && feature.properties['Egresados STEM'] <= 161.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,170,211,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 161.000000 && feature.properties['Egresados STEM'] <= 349.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,124,188,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 349.000000 && feature.properties['Egresados STEM'] <= 508.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,80,160,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 508.000000 && feature.properties['Egresados STEM'] <= 628.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(222,38,127,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 628.000000 && feature.properties['Egresados STEM'] <= 918.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(192,16,97,1.0)',
+            }
+            }
+            if (feature.properties['Egresados STEM'] >= 918.000000 && feature.properties['Egresados STEM'] <= 1131.000000 ) {
+                return {
+                pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,0,67,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Variable23EgresadosporcicloenreaSTEM_1');
+        map.getPane('pane_Variable23EgresadosporcicloenreaSTEM_1').style.zIndex = 401;
+        map.getPane('pane_Variable23EgresadosporcicloenreaSTEM_1').style['mix-blend-mode'] = 'normal';
+        var layer_Variable23EgresadosporcicloenreaSTEM_1 = new L.geoJson(json_Variable23EgresadosporcicloenreaSTEM_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Variable23EgresadosporcicloenreaSTEM_1',
+            onEachFeature: pop_Variable23EgresadosporcicloenreaSTEM_1,
+            style: style_Variable23EgresadosporcicloenreaSTEM_1_0,
+        });
+        bounds_group.addLayer(layer_Variable23EgresadosporcicloenreaSTEM_1);
+        map.addLayer(layer_Variable23EgresadosporcicloenreaSTEM_1);
+        function pop_Variable22TituladosenreasSTEM_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? Autolinker.link(String(feature.properties['Municipio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Titulados STEM</strong><br />' + (feature.properties['Titulados STEM'] !== null ? Autolinker.link(String(feature.properties['Titulados STEM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Posición </strong><br />' + (feature.properties['Posición '] !== null ? Autolinker.link(String(feature.properties['Posición '])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Variable22TituladosenreasSTEM_2_0(feature) {
+            if (feature.properties['Titulados STEM'] >= 0.000000 && feature.properties['Titulados STEM'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,248,251,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 0.000000 && feature.properties['Titulados STEM'] <= 55.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,236,237,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 55.000000 && feature.properties['Titulados STEM'] <= 105.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(167,222,217,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 105.000000 && feature.properties['Titulados STEM'] <= 284.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(124,203,182,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 284.000000 && feature.properties['Titulados STEM'] <= 498.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(85,185,144,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 498.000000 && feature.properties['Titulados STEM'] <= 592.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(52,167,105,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 592.000000 && feature.properties['Titulados STEM'] <= 800.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(25,139,73,1.0)',
+            }
+            }
+            if (feature.properties['Titulados STEM'] >= 800.000000 && feature.properties['Titulados STEM'] <= 1042.000000 ) {
+                return {
+                pane: 'pane_Variable22TituladosenreasSTEM_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,109,44,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Variable22TituladosenreasSTEM_2');
+        map.getPane('pane_Variable22TituladosenreasSTEM_2').style.zIndex = 402;
+        map.getPane('pane_Variable22TituladosenreasSTEM_2').style['mix-blend-mode'] = 'normal';
+        var layer_Variable22TituladosenreasSTEM_2 = new L.geoJson(json_Variable22TituladosenreasSTEM_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Variable22TituladosenreasSTEM_2',
+            onEachFeature: pop_Variable22TituladosenreasSTEM_2,
+            style: style_Variable22TituladosenreasSTEM_2_0,
+        });
+        bounds_group.addLayer(layer_Variable22TituladosenreasSTEM_2);
+        map.addLayer(layer_Variable22TituladosenreasSTEM_2);
+        function pop_Variable21CarrerasenelreaSTEM_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? Autolinker.link(String(feature.properties['Municipio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Carreras STEM</strong><br />' + (feature.properties['Carreras STEM'] !== null ? Autolinker.link(String(feature.properties['Carreras STEM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Posición</strong><br />' + (feature.properties['Posición'] !== null ? Autolinker.link(String(feature.properties['Posición'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Variable21CarrerasenelreaSTEM_3_0(feature) {
+            if (feature.properties['Carreras STEM'] >= 29.000000 && feature.properties['Carreras STEM'] <= 83.000000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,240,217,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 83.000000 && feature.properties['Carreras STEM'] <= 147.250000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,220,172,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 147.250000 && feature.properties['Carreras STEM'] <= 212.250000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,195,131,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 212.250000 && feature.properties['Carreras STEM'] <= 266.000000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,159,103,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 266.000000 && feature.properties['Carreras STEM'] <= 305.625000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,122,78,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 305.625000 && feature.properties['Carreras STEM'] <= 391.750000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,83,56,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 391.750000 && feature.properties['Carreras STEM'] <= 605.125000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,42,29,1.0)',
+            }
+            }
+            if (feature.properties['Carreras STEM'] >= 605.125000 && feature.properties['Carreras STEM'] <= 1204.000000 ) {
+                return {
+                pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,0,0,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Variable21CarrerasenelreaSTEM_3');
+        map.getPane('pane_Variable21CarrerasenelreaSTEM_3').style.zIndex = 403;
+        map.getPane('pane_Variable21CarrerasenelreaSTEM_3').style['mix-blend-mode'] = 'normal';
+        var layer_Variable21CarrerasenelreaSTEM_3 = new L.geoJson(json_Variable21CarrerasenelreaSTEM_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Variable21CarrerasenelreaSTEM_3',
+            onEachFeature: pop_Variable21CarrerasenelreaSTEM_3,
+            style: style_Variable21CarrerasenelreaSTEM_3_0,
+        });
+        bounds_group.addLayer(layer_Variable21CarrerasenelreaSTEM_3);
+        map.addLayer(layer_Variable21CarrerasenelreaSTEM_3);
+        function pop_Eje2Educacin_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Municipios</strong><br />' + (feature.properties['Municipios'] !== null ? Autolinker.link(String(feature.properties['Municipios'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Carreras en áreas STEM</strong><br />' + (feature.properties['Carreras en áreas STEM'] !== null ? Autolinker.link(String(feature.properties['Carreras en áreas STEM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Titulados en áreas STEM</strong><br />' + (feature.properties['Titulados en áreas STEM'] !== null ? Autolinker.link(String(feature.properties['Titulados en áreas STEM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Egresados por ciclo en áreas STEM</strong><br />' + (feature.properties['Egresados por ciclo en áreas STEM'] !== null ? Autolinker.link(String(feature.properties['Egresados por ciclo en áreas STEM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Número total de becados </strong><br />' + (feature.properties['Número total de becados '] !== null ? Autolinker.link(String(feature.properties['Número total de becados '])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Dimensión </strong><br />' + (feature.properties['Dimensión '] !== null ? Autolinker.link(String(feature.properties['Dimensión '])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Eje2Educacin_4_0(feature) {
+            if (feature.properties['Dimensión '] >= 0.000000 && feature.properties['Dimensión '] <= 0.000000 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+            }
+            }
+            if (feature.properties['Dimensión '] >= 0.000000 && feature.properties['Dimensión '] <= 1.000000 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,231,245,1.0)',
+            }
+            }
+            if (feature.properties['Dimensión '] >= 1.000000 && feature.properties['Dimensión '] <= 2.000000 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(176,210,232,1.0)',
+            }
+            }
+            if (feature.properties['Dimensión '] >= 2.000000 && feature.properties['Dimensión '] <= 3.000000 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,1.0)',
+            }
+            }
+            if (feature.properties['Dimensión '] >= 3.000000 && feature.properties['Dimensión '] <= 5.000000 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,142,196,1.0)',
+            }
+            }
+            if (feature.properties['Dimensión '] >= 5.000000 && feature.properties['Dimensión '] <= 7.000000 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(21,99,170,1.0)',
+            }
+            }
+            if (feature.properties['Dimensión '] >= 7.000000 && feature.properties['Dimensión '] <= 9.378599 ) {
+                return {
+                pane: 'pane_Eje2Educacin_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Eje2Educacin_4');
+        map.getPane('pane_Eje2Educacin_4').style.zIndex = 404;
+        map.getPane('pane_Eje2Educacin_4').style['mix-blend-mode'] = 'normal';
+        var layer_Eje2Educacin_4 = new L.geoJson(json_Eje2Educacin_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Eje2Educacin_4',
+            onEachFeature: pop_Eje2Educacin_4,
+            style: style_Eje2Educacin_4_0,
+        });
+        bounds_group.addLayer(layer_Eje2Educacin_4);
+        map.addLayer(layer_Eje2Educacin_4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Eje 2: Educación<br /><table><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_0000000.png" /></td><td> 0.00 - 0.00 </td></tr><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_001101.png" /></td><td> 0.01 - 1.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_1012002.png" /></td><td> 1.01 - 2.00 </td></tr><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_2013003.png" /></td><td> 2.01 - 3.00 </td></tr><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_3015004.png" /></td><td> 3.01 - 5.00 </td></tr><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_5017005.png" /></td><td> 5.01 - 7.00 </td></tr><tr><td style="text-align: center;"><img src="legend/Eje2Educacin_4_7019386.png" /></td><td> 7.01 - 9.38 </td></tr></table>': layer_Eje2Educacin_4,'Variable 2.1: Carreras en el área STEM<br /><table><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_29830.png" /></td><td> 29 - 83 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_831471.png" /></td><td> 83 - 147 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_1472122.png" /></td><td> 147 - 212 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_2122663.png" /></td><td> 212 - 266 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_2663064.png" /></td><td> 266 - 306 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_3063925.png" /></td><td> 306 - 392 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_3926056.png" /></td><td> 392 - 605 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable21CarrerasenelreaSTEM_3_60512047.png" /></td><td> 605 - 1204 </td></tr></table>': layer_Variable21CarrerasenelreaSTEM_3,'Variable 2.2: Titulados en áreas STEM<br /><table><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_000.png" /></td><td> 0 - 0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_0551.png" /></td><td> 0 - 55 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_561052.png" /></td><td> 56 - 105 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_1062843.png" /></td><td> 106 - 284 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_2854984.png" /></td><td> 285 - 498 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_4995925.png" /></td><td> 499 - 592 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_5938006.png" /></td><td> 593 - 800 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable22TituladosenreasSTEM_2_80110427.png" /></td><td> 801 - 1042 </td></tr></table>': layer_Variable22TituladosenreasSTEM_2,'Variable 2.3: Egresados por ciclo en área STEM<br /><table><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_00000.png" /></td><td> 0.0 - 0.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_13501.png" /></td><td> 1 - 35.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_36016102.png" /></td><td> 36.0 - 161.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_162034903.png" /></td><td> 162.0 - 349.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_350050804.png" /></td><td> 350.0 - 508.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_509062805.png" /></td><td> 509.0 - 628.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_629091806.png" /></td><td> 629.0 - 918.0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable23EgresadosporcicloenreaSTEM_1_9190113107.png" /></td><td> 919.0 - 1131.0 </td></tr></table>': layer_Variable23EgresadosporcicloenreaSTEM_1,'Variable 2.4: Número total de becados <br /><table><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_000.png" /></td><td> 0 - 0 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_0461.png" /></td><td> 0 - 46 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_46702.png" /></td><td> 46 - 70 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_70933.png" /></td><td> 70 - 93 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_931164.png" /></td><td> 93 - 116 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_1161405.png" /></td><td> 116 - 140 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_1401636.png" /></td><td> 140 - 163 </td></tr><tr><td style="text-align: center;"><img src="legend/Variable24Nmerototaldebecados_0_1631867.png" /></td><td> 163 - 186 </td></tr></table>': layer_Variable24Nmerototaldebecados_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
